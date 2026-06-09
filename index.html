@@ -20,9 +20,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -101,10 +99,7 @@
     opacity: 0;
     animation: fadeUp 0.8s ease 0.25s forwards;
   }
-  .hero-headline em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero-headline em { font-style: italic; color: var(--accent); }
   .hero-sub {
     font-size: 1.05rem;
     color: var(--muted);
@@ -152,7 +147,6 @@
   }
   .btn-outline:hover { border-color: var(--muted); color: var(--text); }
 
-  /* scrolling ticker */
   .ticker-wrap {
     position: absolute;
     bottom: 3rem;
@@ -197,33 +191,11 @@
     line-height: 1.1;
     color: var(--text);
   }
-  .about-body p {
-    color: var(--muted);
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
-  }
+  .about-body p { color: var(--muted); margin-bottom: 1.25rem; font-size: 1rem; }
   .about-body p strong { color: var(--text); font-weight: 500; }
-  .trait-list {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .trait {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-  .trait::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
+  .trait-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .trait { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: var(--muted); }
+  .trait::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); flex-shrink: 0; }
 
   /* ── SKILLS ── */
   #skills { border-top: 1px solid var(--border); }
@@ -273,44 +245,56 @@
     align-items: end;
     margin-bottom: 4rem;
   }
-  .proj-grid { display: flex; flex-direction: column; gap: 1px; }
+
+  /* project list */
+  .proj-grid { display: flex; flex-direction: column; }
+
   .proj-card {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 0;
     display: grid;
-    grid-template-columns: 80px 1fr auto;
+    grid-template-columns: 80px 1fr;
     gap: 2rem;
     align-items: start;
-    padding: 2.5rem 0;
-    border-top: 1px solid var(--border);
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.2s;
-    cursor: pointer;
   }
   .proj-card:last-child { border-bottom: 1px solid var(--border); }
-  .proj-card:hover .proj-num { color: var(--accent); }
-  .proj-card:hover .proj-arrow { transform: translate(4px, -4px); }
+
   .proj-num {
     font-family: var(--serif);
     font-size: 2rem;
     color: var(--border);
-    transition: color 0.2s;
     padding-top: 0.25rem;
+    transition: color 0.2s;
   }
-  .proj-body { }
-  .proj-badge {
-    display: inline-block;
+
+  .proj-body {}
+
+  .proj-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .proj-type {
     font-size: 0.68rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    margin-bottom: 0.75rem;
-    border: 1px solid var(--border);
     color: var(--muted);
   }
-  .proj-badge.highlight {
-    border-color: var(--accent);
+
+  .proj-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--accent);
     color: var(--accent);
   }
+
   .proj-title {
     font-family: var(--serif);
     font-size: 1.5rem;
@@ -318,14 +302,38 @@
     margin-bottom: 0.6rem;
     line-height: 1.2;
   }
+
   .proj-desc {
     font-size: 0.9rem;
     color: var(--muted);
-    max-width: 520px;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
   }
-  .proj-tech { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  /* stats row */
+  .proj-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; gap: 0.2rem; }
+  .stat-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .stat-label {
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* tech tags */
+  .proj-tech { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
   .proj-tech span {
     font-size: 0.72rem;
     letter-spacing: 0.06em;
@@ -333,11 +341,82 @@
     opacity: 0.6;
   }
   .proj-tech span::before { content: '# '; }
-  .proj-arrow {
-    font-size: 1.25rem;
+
+  /* toggle */
+  .proj-toggle {
+    background: none;
+    border: 1px solid var(--border);
     color: var(--muted);
-    padding-top: 0.5rem;
-    transition: transform 0.2s;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .proj-toggle:hover { border-color: var(--muted); color: var(--text); }
+
+  /* case study detail */
+  .case-study {
+    display: none;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .case-study.open { display: block; }
+
+  .cs-section { margin-bottom: 2rem; }
+  .cs-section:last-child { margin-bottom: 0; }
+
+  .cs-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .cs-text { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+  .cs-text p { margin-bottom: 0.75rem; }
+  .cs-text p:last-child { margin-bottom: 0; }
+
+  .cs-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .cs-list li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .cs-list li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+
+  .cs-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    margin-top: 0.5rem;
+  }
+  .cs-metric {
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+  }
+  .cs-metric:last-child { border-right: none; }
+  .cs-metric-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+  .cs-metric-label {
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
   }
 
   /* ── THINKING ── */
@@ -377,11 +456,7 @@
     line-height: 1.3;
     margin-bottom: 0.75rem;
   }
-  .thought-desc {
-    font-size: 0.83rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+  .thought-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
 
   /* ── CONTACT ── */
   #contact {
@@ -403,18 +478,8 @@
     line-height: 1.1;
     margin-bottom: 1.5rem;
   }
-  .contact-sub {
-    color: var(--muted);
-    font-size: 1rem;
-    max-width: 420px;
-    margin: 0 auto 3rem;
-  }
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
+  .contact-sub { color: var(--muted); font-size: 1rem; max-width: 420px; margin: 0 auto 3rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
   .contact-link {
     font-size: 0.78rem;
     letter-spacing: 0.1em;
@@ -445,7 +510,6 @@
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -463,7 +527,10 @@
     .skills-intro { grid-template-columns: 1fr; }
     .projects-header { grid-template-columns: 1fr; gap: 1rem; }
     .thinking-header { grid-template-columns: 1fr; gap: 1rem; }
-    .proj-card { grid-template-columns: 50px 1fr auto; gap: 1rem; }
+    .proj-card { grid-template-columns: 1fr; gap: 0.5rem; }
+    .proj-num { font-size: 1rem; padding-top: 0; }
+    .proj-stats { gap: 1.5rem; }
+    .cs-metrics { grid-template-columns: 1fr 1fr; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
     .skill-block { border-right: none; border-bottom: 1px solid var(--border); }
     .thought-card { border-right: none; border-bottom: 1px solid var(--border); }
@@ -503,34 +570,20 @@
 </section>
 <div class="ticker-wrap">
   <div class="ticker">
-    <span>Strategy & Operations</span>
-    <span>·</span>
-    <span>AI Workflow Automation</span>
-    <span>·</span>
-    <span>Behavioral Research</span>
-    <span>·</span>
-    <span>Data Analysis</span>
-    <span>·</span>
-    <span>Psychology</span>
-    <span>·</span>
-    <span>Market Research</span>
-    <span>·</span>
-    <span>Prompt Engineering</span>
-    <span>·</span>
-    <span>Strategy & Operations</span>
-    <span>·</span>
-    <span>AI Workflow Automation</span>
-    <span>·</span>
-    <span>Behavioral Research</span>
-    <span>·</span>
-    <span>Data Analysis</span>
-    <span>·</span>
-    <span>Psychology</span>
-    <span>·</span>
-    <span>Market Research</span>
-    <span>·</span>
-    <span>Prompt Engineering</span>
-    <span>·</span>
+    <span>Strategy & Operations</span><span>·</span>
+    <span>AI Workflow Automation</span><span>·</span>
+    <span>Behavioral Research</span><span>·</span>
+    <span>Data Analysis</span><span>·</span>
+    <span>Psychology</span><span>·</span>
+    <span>Market Research</span><span>·</span>
+    <span>Prompt Engineering</span><span>·</span>
+    <span>Strategy & Operations</span><span>·</span>
+    <span>AI Workflow Automation</span><span>·</span>
+    <span>Behavioral Research</span><span>·</span>
+    <span>Data Analysis</span><span>·</span>
+    <span>Psychology</span><span>·</span>
+    <span>Market Research</span><span>·</span>
+    <span>Prompt Engineering</span><span>·</span>
   </div>
 </div>
 </div>
@@ -614,91 +667,358 @@
   <div class="projects-header">
     <div class="reveal">
       <p class="section-num">03 — Projects</p>
-      <h2 class="section-title">Selected work.</h2>
+      <h2 class="section-title">Work that shipped.</h2>
     </div>
-    <p class="reveal" style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Each project follows a structured case study format — problem, approach, outcome, and key learning. Not just screenshots.</p>
+    <p class="reveal" style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Real operational problems, built and deployed in-house. Each case study covers the problem, what was built, how it works, and what changed as a result.</p>
   </div>
+
   <div class="proj-grid reveal">
 
-    <div class="proj-card">
+    <!-- 01 REVIORA -->
+    <article class="proj-card">
       <div class="proj-num">01</div>
       <div class="proj-body">
-        <span class="proj-badge highlight">Featured</span>
-        <h3 class="proj-title">AI Meeting Notes Automation System</h3>
-        <p class="proj-desc">An n8n workflow that turns meeting recordings into transcriptions, AI summaries, extracted action items, and auto-delivered email/Slack outputs — reducing post-meeting overhead by hours.</p>
+        <div class="proj-meta">
+          <span class="proj-type">AI · Knowledge Management</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">Reviora — AI Operations Copilot</h3>
+        <p class="proj-desc">An in-house AI chatbot that consolidated fragmented process documentation and eliminated hours of daily operational inefficiency — reducing knowledge retrieval overhead by 95%.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">95%</span>
+            <span class="stat-label">Efficiency gain</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">44 hrs → 3 hrs</span>
+            <span class="stat-label">Monthly overhead</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">5–6 days</span>
+            <span class="stat-label">Recovered per month</span>
+          </div>
+        </div>
         <div class="proj-tech">
-          <span>n8n</span><span>OpenAI API</span><span>Automation</span><span>Slack</span>
+          <span>NotebookLM</span><span>Prompt Engineering</span><span>Knowledge Management</span><span>Ops Design</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>Process documentation was deeply fragmented — multiple versions of the same process existed simultaneously, with no clear source of truth. Every time a process was updated, previous iterations lingered across drives and inboxes, creating confusion.</p>
+              <p>Beyond documentation, the team spent significant time resolving process-related queries through repeated communication. A measured baseline of approximately 2 hours per day — 44 hours per month, or 5–6 working days — was being lost to documentation search and repetitive clarifications.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>Reviora is an in-house AI operations copilot built on NotebookLM, designed to consolidate the team's entire knowledge base and surface it conversationally. It acts as an always-available resource for process queries, onboarding, cross-team understanding, and operational best practices.</p>
+              <p>The build involved three phases: processes were categorized into structured domains — Operational, Process-Related, Team-Related, Onboarding, and others. Every process, update, team member detail, and skill matrix entry was then mapped out in full. Finally — and critically — each document was written with AI readability in mind, optimizing structure and language for how a language model would consume and reason over the content.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Instant resolution of process and operational queries without escalation</li>
+              <li>Automated drafting of vendor query responses based on documented processes</li>
+              <li>Team-level visibility via skill matrices — enabling managers to match tasks to the right individuals</li>
+              <li>Cross-team collaboration: different teams could independently understand each other's processes without repeated back-and-forth</li>
+              <li>Standardized onboarding experience for new team members</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">95%</div>
+                <div class="cs-metric-label">Reduction in knowledge overhead</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">44 → 3 hrs</div>
+                <div class="cs-metric-label">Monthly time on queries</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">5–6 days</div>
+                <div class="cs-metric-label">Productive time recovered monthly</div>
+              </div>
+            </div>
+            <div class="cs-text" style="margin-top:1rem;">
+              <p>Impact was measured over one month of post-implementation tracking. The reduction was consistent across the team, not just at the individual level.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="proj-arrow">↗</div>
-    </div>
+    </article>
 
-    <div class="proj-card">
+    <!-- 02 SPAM DETECTION -->
+    <article class="proj-card">
       <div class="proj-num">02</div>
       <div class="proj-body">
-        <span class="proj-badge highlight">Featured</span>
-        <h3 class="proj-title">Mental Health Journal AI Analyzer</h3>
-        <p class="proj-desc">An AI-powered journaling system that detects mood, identifies emotional patterns, extracts behavioral trends, and provides supportive responses — combining psychology with applied AI.</p>
+        <div class="proj-meta">
+          <span class="proj-type">AI · Data · Fraud Detection</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">Spam & Fraud Detection Model</h3>
+        <p class="proj-desc">A hybrid detection system combining SQL workflows, formula-based automation, and AI-assisted prompts to identify spam, fraud, and information discrepancies — lifting accuracy from 72% to 92%.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">72% → 92%</span>
+            <span class="stat-label">Detection accuracy</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">75%+</span>
+            <span class="stat-label">Efficiency gain</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Eliminated</span>
+            <span class="stat-label">Manual detection effort</span>
+          </div>
+        </div>
         <div class="proj-tech">
-          <span>Python</span><span>Streamlit</span><span>Gemini API</span><span>SQLite</span>
+          <span>SQL</span><span>Spreadsheet Automation</span><span>AI Prompting</span><span>Fraud Detection</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>Spam and fraud detection was done entirely by hand. Analysts manually reviewed records for signs of fraud, spam patterns, and information discrepancies — a process prone to oversight, inconsistent judgment, and human error.</p>
+              <p>The manual approach had a measurable ceiling: detection accuracy sat between 72–78%, meaning a significant proportion of fraud and spam was either missed or incorrectly actioned. There was no systematic pattern recognition in place.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A multi-layer detection system that operates from a single raw data input source. The system runs records through an extensive formula-based spreadsheet template and SQL workflows that automatically surface records with high fraud or spam probability. AI-assisted prompts layer on top to catch patterns that rule-based logic alone may miss.</p>
+              <p>Detected records are categorized automatically based on the pattern type exhibited — spam, fraud, or information discrepancy — giving analysts a pre-triaged queue rather than an undifferentiated list to review manually.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Single-input automation — raw data in, categorized output out</li>
+              <li>Pattern-based classification across spam, fraud, and discrepancy types</li>
+              <li>SQL workflow integration for scalable data processing</li>
+              <li>AI-assisted prompt layer for nuanced pattern identification beyond rule-based logic</li>
+              <li>Elimination of manual review as the primary detection mechanism</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">92%</div>
+                <div class="cs-metric-label">Detection accuracy (from 72–78%)</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">75%+</div>
+                <div class="cs-metric-label">Increase in efficiency</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Eliminated</div>
+                <div class="cs-metric-label">Manual detection effort</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="proj-arrow">↗</div>
-    </div>
+    </article>
 
-    <div class="proj-card">
+    <!-- 03 AI PERSONAS -->
+    <article class="proj-card">
       <div class="proj-num">03</div>
       <div class="proj-body">
-        <span class="proj-badge highlight">Featured</span>
-        <h3 class="proj-title">AI Workplace Behavior Study</h3>
-        <p class="proj-desc">Survey-based research analyzing how professionals are shifting from traditional search to AI tools — behavioral insights, user personas, trend charts, and business implications.</p>
+        <div class="proj-meta">
+          <span class="proj-type">AI · Workflow · Team Ops</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">AI Persona Suite — Team-Scale Automation</h3>
+        <p class="proj-desc">A suite of six purpose-built AI personas deployed team-wide to standardize analysis, documentation, and irregularity detection — replacing manual, inconsistent, and error-prone processes.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">6</span>
+            <span class="stat-label">Personas built</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Team-wide</span>
+            <span class="stat-label">Adoption</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Standardized</span>
+            <span class="stat-label">Analysis & docs</span>
+          </div>
+        </div>
         <div class="proj-tech">
-          <span>Google Forms</span><span>Tableau</span><span>Excel</span><span>Research</span>
+          <span>Prompt Engineering</span><span>AI Personas</span><span>Workflow Automation</span><span>Standardization</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>A range of recurring operational tasks — deep-dive analysis, documentation, irregularity identification — were being handled manually, individually, and without standardization. Output quality varied by person, analysis was time-intensive, and processes susceptible to human error in judgment had no systematic checks in place.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A suite of six AI personas, each purpose-built for a specific operational need and deployed team-wide. Each persona was designed with extensive prompt instructions, calibrated against real organizational context, and built to operate consistently regardless of who is using it.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Personas built</p>
+            <ul class="cs-list">
+              <li><strong style="color:var(--text); font-weight:500;">Documentation Assistant</strong> — generates formal, standardized proposals and process documents using organization-wide documents as reference, producing consistent output regardless of who initiates it</li>
+              <li><strong style="color:var(--text); font-weight:500;">Analysis Assistant</strong> — accepts raw data input and conducts deep strategic analysis, surfacing business insights and identifying problem areas; replaced an entirely manual, unstandardized process</li>
+              <li><strong style="color:var(--text); font-weight:500;">Irregularities Identification Assistant</strong> — scans records for patterns including word count anomalies, harsh content, and Conflict of Interest flags; eliminates reliance on individual judgment for detection</li>
+              <li>Three additional personas covering other recurring operational workflows</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-text">
+              <p>All six personas were adopted at the team level, standardizing output quality across analysis, documentation, and compliance-related tasks. Processes previously dependent on individual effort and judgment became consistent, repeatable, and significantly faster — particularly deep-dive analysis, which had no prior standardization at all.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="proj-arrow">↗</div>
-    </div>
+    </article>
 
-    <div class="proj-card">
+    <!-- 04 TAT INTELLIGENCE -->
+    <article class="proj-card">
       <div class="proj-num">04</div>
       <div class="proj-body">
-        <span class="proj-badge">Research</span>
-        <h3 class="proj-title">LinkedIn Trend Intelligence Dashboard</h3>
-        <p class="proj-desc">Tracking trending workplace discussions — AI, burnout, hiring, remote work — with sentiment analysis and engagement pattern visualization.</p>
+        <div class="proj-meta">
+          <span class="proj-type">Ops · Analytics · Automation</span>
+        </div>
+        <h3 class="proj-title">TAT Intelligence Tool — SLA Breach & Performance System</h3>
+        <p class="proj-desc">A two-layer operational system that detects SLA breaches in real time and surfaces records for priority processing, while tracking team efficiency over time — reducing daily reporting overhead by 93%.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">15 min → &lt;1 min</span>
+            <span class="stat-label">Daily reporting time</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Automated</span>
+            <span class="stat-label">Priority queue surfacing</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Real-time</span>
+            <span class="stat-label">Team efficiency tracking</span>
+          </div>
+        </div>
         <div class="proj-tech">
-          <span>Dashboard</span><span>Sentiment Analysis</span><span>Strategy</span>
+          <span>SQL</span><span>Spreadsheet Automation</span><span>SLA Management</span><span>Performance Analytics</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>TAT management was handled entirely manually. Daily reporting took around 15 minutes each day. There was no systematic process for surfacing records breaching the defined TAT — identification relied on manual Excel filtering. And there was no performance intelligence layer at all: team efficiency against TAT was not being measured in any structured way.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A two-layer system built on formula-based spreadsheet automation and SQL workflows. The first layer handles operational prioritization: it automatically identifies records breaching defined TAT thresholds and surfaces them directly to the team for priority processing — replacing manual Excel filtering entirely.</p>
+              <p>The second layer handles performance intelligence: it tracks the TAT of processed records over time, enabling the team to measure actual efficiency, identify bottlenecks, and manage turnaround proactively. This layer did not exist before this build.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Real-time identification of records breaching defined TAT thresholds</li>
+              <li>Automatic surfacing of breach records for priority processing</li>
+              <li>Team-level efficiency measurement through processed record TAT tracking</li>
+              <li>Gap and bottleneck identification at the performance level</li>
+              <li>Daily reporting reduced from 15 minutes to under 1 minute</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">93%</div>
+                <div class="cs-metric-label">Reduction in daily reporting time</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Automated</div>
+                <div class="cs-metric-label">Breach detection & queue surfacing</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Built from scratch</div>
+                <div class="cs-metric-label">Performance intelligence layer</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="proj-arrow">↗</div>
-    </div>
+    </article>
 
-    <div class="proj-card">
+    <!-- 05 NOTE GENERATOR -->
+    <article class="proj-card">
       <div class="proj-num">05</div>
       <div class="proj-body">
-        <span class="proj-badge">Sustainability</span>
-        <h3 class="proj-title">Crop Waste Utilization Business Research</h3>
-        <p class="proj-desc">A research-backed sustainability proposal exploring crop waste reuse — problem analysis, pollution impact, supply chain mapping, competitor research, and market opportunity sizing.</p>
+        <div class="proj-meta">
+          <span class="proj-type">Automation · Standardization</span>
+        </div>
+        <h3 class="proj-title">Automated Note Generator</h3>
+        <p class="proj-desc">A formula-driven template that automatically analyzes reviewer-level entities from raw data and produces standardized notes — cutting processing time by 93% while improving consistency across the team.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">93%</span>
+            <span class="stat-label">Time reduction</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">15 min → &lt;1 min</span>
+            <span class="stat-label">Per record</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Standardized</span>
+            <span class="stat-label">Team-wide notes</span>
+          </div>
+        </div>
         <div class="proj-tech">
-          <span>Business Research</span><span>Strategy</span><span>Market Analysis</span>
+          <span>Spreadsheet Automation</span><span>Formula Engineering</span><span>Process Design</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>Notes for reviewer-level records were written manually — analysts reviewed each entity individually and composed notes from scratch, taking around 15 minutes per record. At volume, this was a significant drag. Beyond time, there was a standardization problem: notes varied in structure and language across the team, making tracking and management of records harder than it needed to be.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A formula-driven spreadsheet template that accepts raw data as input and automatically analyzes all entities of the reviewer. Based on that analysis, a structured note is generated automatically — no manual composition required. The template was standardized and deployed across the team, replacing individual variation with a consistent output format.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">93%</div>
+                <div class="cs-metric-label">Reduction in processing time</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">&lt;1 min</div>
+                <div class="cs-metric-label">Per record (from 15 min)</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Consistent</div>
+                <div class="cs-metric-label">Quality, format & accuracy</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="proj-arrow">↗</div>
-    </div>
+    </article>
 
-    <div class="proj-card">
-      <div class="proj-num">06</div>
-      <div class="proj-body">
-        <span class="proj-badge">Behavioral Design</span>
-        <h3 class="proj-title">Personal Wellness Challenge Dashboard</h3>
-        <p class="proj-desc">A workplace wellness initiative redesigned as a behavioral product — gamification, psychology-based nudges, streak system, motivation analytics, and participation trend tracking.</p>
-        <div class="proj-tech">
-          <span>Behavioral Design</span><span>Gamification</span><span>Dashboard</span>
-        </div>
-      </div>
-      <div class="proj-arrow">↗</div>
-    </div>
-
-  </div>
+  </div><!-- /proj-grid -->
 </section>
 
 <!-- THINKING -->
@@ -741,12 +1061,7 @@
   <p class="contact-sub reveal">Open to strategy, operations, AI, research, and automation roles. Always interested in interesting problems.</p>
   <div class="contact-links reveal">
     <a href="mailto:bhargav0107@gmail.com" class="contact-link">Email</a>
-    <a href="https://www.linkedin.com/in/bhargava-bhavaraju" 
-   class="contact-link" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   LinkedIn
-</a>
+    <a href="https://www.linkedin.com/in/bhargava-bhavaraju" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="resume.pdf" class="contact-link" target="_blank">Resume</a>
   </div>
 </section>
@@ -757,13 +1072,11 @@
 </footer>
 
 <script>
-  // Nav scroll effect
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -774,6 +1087,18 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  function toggleCase(btn) {
+    const cs = btn.nextElementSibling;
+    const isOpen = cs.classList.contains('open');
+    cs.classList.toggle('open');
+    btn.textContent = isOpen ? 'Read case study ↓' : 'Close ↑';
+    if (!isOpen) {
+      btn.closest('.proj-card').querySelector('.proj-num').style.color = 'var(--accent)';
+    } else {
+      btn.closest('.proj-card').querySelector('.proj-num').style.color = 'var(--border)';
+    }
+  }
 </script>
 </body>
 </html>
