@@ -1122,6 +1122,12 @@
   function toggleCase(btn) {
     const cs = btn.nextElementSibling;
     const isOpen = cs.classList.contains('open');
+    if (!isOpen) {                                  // ADD THIS BLOCK ↓
+    const project = btn.closest('.proj-card')
+      .querySelector('.proj-title')
+      .textContent.trim();
+    gtag('event', 'project_open', { project_name: project });
+  }  
     cs.classList.toggle('open');
     btn.textContent = isOpen ? 'Read case study ↓' : 'Close ↑';
     if (!isOpen) {
