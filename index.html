@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4P81VN2R6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N4P81VN2R6');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhargava Bhavaraju — AI Driven Operations & Analytics Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --text: #f0ede8;
+    --muted: #888880;
+    --accent: #c8b89a;
+    --tag-bg: #1e1e1e;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  nav.scrolled {
+    border-color: var(--border);
+    background: rgba(13,13,13,0.9);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .hero-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.1s forwards;
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.25s forwards;
+  }
+  .hero-headline em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.55s forwards;
+  }
+  .btn-primary {
+    padding: 0.75rem 2rem;
+    background: var(--accent);
+    color: #0d0d0d;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-outline {
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--muted); color: var(--text); }
+
+  .ticker-wrap {
+    position: absolute;
+    bottom: 3rem;
+    left: 0; right: 0;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 0;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+  .ticker {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: ticker 20s linear infinite;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── ABOUT ── */
+  #about { border-top: 1px solid var(--border); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .section-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .about-body p { color: var(--muted); margin-bottom: 1.25rem; font-size: 1rem; }
+  .about-body p strong { color: var(--text); font-weight: 500; }
+  .trait-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .trait { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: var(--muted); }
+  .trait::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); flex-shrink: 0; }
+
+  /* ── SKILLS ── */
+  #skills { border-top: 1px solid var(--border); }
+  .skills-intro {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+  }
+  .skill-block {
+    padding: 2rem;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    transition: background 0.2s;
+  }
+  .skill-block:hover { background: #1e1e1e; }
+  .skill-block:last-child { border-right: none; }
+  .skill-block-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--tag-bg);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { border-top: 1px solid var(--border); }
+  .projects-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  /* project list */
+  .proj-grid { display: flex; flex-direction: column; }
+
+  .proj-card {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 0;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .proj-card:last-child { border-bottom: 1px solid var(--border); }
+
+  .proj-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--border);
+    padding-top: 0.25rem;
+    transition: color 0.2s;
+  }
+
+  .proj-body {}
+
+  .proj-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .proj-type {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .proj-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+  }
+
+  .proj-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+
+  .proj-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  /* stats row */
+  .proj-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; gap: 0.2rem; }
+  .stat-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .stat-label {
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* tech tags */
+  .proj-tech { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .proj-tech span {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+  .proj-tech span::before { content: '# '; }
+
+  /* toggle */
+  .proj-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .proj-toggle:hover { border-color: var(--muted); color: var(--text); }
+
+  .proj-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .proj-links a {
+    padding: 0.5rem 1.1rem;
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .proj-links a:hover { background: var(--accent); color: #0d0d0d; }
+
+  /* case study detail */
+  .case-study {
+    display: none;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .case-study.open { display: block; }
+
+  .cs-section { margin-bottom: 2rem; }
+  .cs-section:last-child { margin-bottom: 0; }
+
+  .cs-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .cs-text { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+  .cs-text p { margin-bottom: 0.75rem; }
+  .cs-text p:last-child { margin-bottom: 0; }
+
+  .cs-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .cs-list li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .cs-list li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+
+  .cs-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    margin-top: 0.5rem;
+  }
+  .cs-metric {
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+  }
+  .cs-metric:last-child { border-right: none; }
+  .cs-metric-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+  .cs-metric-label {
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  /* ── THINKING ── */
+  #thinking { border-top: 1px solid var(--border); }
+  .thinking-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+  .thoughts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+  }
+  .thought-card {
+    padding: 2rem;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .thought-card:last-child { border-right: none; }
+  .thought-card:hover { background: #1e1e1e; }
+  .thought-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .thought-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+  .thought-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── CONTACT ── */
+  #contact {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 8rem 3rem;
+  }
+  .contact-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .contact-headline {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .contact-sub { color: var(--muted); font-size: 1rem; max-width: 420px; margin: 0 auto 3rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.25rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 6rem 1.5rem 4rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-intro { grid-template-columns: 1fr; }
+    .projects-header { grid-template-columns: 1fr; gap: 1rem; }
+    .thinking-header { grid-template-columns: 1fr; gap: 1rem; }
+    .proj-card { grid-template-columns: 1fr; gap: 0.5rem; }
+    .proj-num { font-size: 1rem; padding-top: 0; }
+    .proj-stats { gap: 1.5rem; }
+    .cs-metrics { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .skill-block { border-right: none; border-bottom: 1px solid var(--border); }
+    .thought-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .thought-card:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Bhargava Bhavaraju</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#open-source">Open-Source</a></li>
+    <li><a href="#thinking">Thinking</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="position:relative;">
+<section id="hero">
+  <p class="hero-label">AI · Automation · Operations · Analytics</p>
+  <h1 class="hero-headline">
+    Where AI meets<br>Automation,<br><em>and Operations that ship.</em>
+  </h1>
+  <p class="hero-sub">
+    AI-Enabled Automation professional designing agent pipelines, intelligent workflows, and the governance systems that keep them trustworthy.
+  </p>
+  <div class="hero-ctas">
+    <a href="#projects" class="btn-primary">View projects</a>
+    <a href="#contact" class="btn-outline">Get in touch</a>
+    <a href="Bhargava Bhavaraju latest resume.pdf"
+   class="btn-outline"
+   target="_blank"
+   onclick="gtag('event', 'resume_download');">
+   Resume ↗
+</a>
+  </div>
+</section>
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>AI Agent Design</span><span>·</span>
+    <span>Workflow Automation</span><span>·</span>
+    <span>AI Governance</span><span>·</span>
+    <span>Data Analysis</span><span>·</span>
+    <span>Process Optimization</span><span>·</span>
+    <span>Prompt Engineering</span><span>·</span>
+    <span>Strategy & Operations</span><span>·</span>
+    <span>AI Agent Design</span><span>·</span>
+    <span>Workflow Automation</span><span>·</span>
+    <span>AI Governance</span><span>·</span>
+    <span>Data Analysis</span><span>·</span>
+    <span>Process Optimization</span><span>·</span>
+    <span>Prompt Engineering</span><span>·</span>
+    <span>Strategy & Operations</span><span>·</span>
+  </div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="section-num">01 — About</p>
+      <h2 class="section-title">AI-native, not AI-adjacent.</h2>
+    </div>
+    <div class="about-body reveal">
+      <p>I design and ship AI-powered automation — agent pipelines that run on their own, and increasingly, the tools to check whether they're actually safe to run unsupervised.</p>
+      <p>The common thread is ownership end-to-end, and a healthy skepticism toward anything that looks automated but hasn't actually been tested.</p>
+      <div class="trait-list">
+        <div class="trait">AI & Workflow Automation</div>
+        <div class="trait">AI Governance & Auditing</div>
+        <div class="trait">End-to-End Ownership</div>
+        <div class="trait">Data-Driven Operations</div>
+        <div class="trait">Behavioral & Systems Thinking</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-intro">
+    <div class="reveal">
+      <p class="section-num">02 — Skills</p>
+      <h2 class="section-title">What I work with.</h2>
+    </div>
+    <p class="reveal" style="color:var(--muted); font-size:0.95rem; line-height:1.7;">My core strength is designing and shipping AI-powered automation — backed by the analytical rigor, operational systems thinking, and human understanding needed to make sure it actually holds up in practice, not just in a demo.</p>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-block">
+      <div class="skill-block-title">AI & Automation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">n8n (L2 Advanced Certified)</span>
+        <span class="skill-tag">Microsoft Power Automate</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">Multi-LLM Orchestration</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Custom AI Persona Design</span>
+        <span class="skill-tag">AI Governance & Risk Auditing</span>
+        <span class="skill-tag">Agentic Workflow Design</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Analytics & BI</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Snowflake</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Looker Studio</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">SPSS</span>
+        <span class="skill-tag">GA4</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Strategy & Operations</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Process Design</span>
+        <span class="skill-tag">SLA / TAT Intelligence</span>
+        <span class="skill-tag">Knowledge Management</span>
+        <span class="skill-tag">Process Automation & Optimization</span>
+        <span class="skill-tag">Competitive Intelligence</span>
+        <span class="skill-tag">Project Management</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Human Understanding</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Cross-Functional Collaboration</span>
+        <span class="skill-tag">Emotional Intelligence</span>
+        <span class="skill-tag">Behavioral Analysis</span>
+        <span class="skill-tag">Storytelling</span>
+        <span class="skill-tag">Effective Communication</span>
+        <span class="skill-tag">Stakeholder Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="projects">
+  <div class="projects-header">
+    <div class="reveal">
+      <p class="section-num">03 — Case Studies</p>
+      <h2 class="section-title">Work that shipped.</h2>
+    </div>
+    <p class="reveal" style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Real operational problems, built and deployed in-house. Each case study covers the problem, what was built, how it works, and what changed as a result.</p>
+  </div>
+
+  <div class="proj-grid reveal">
+
+    <!-- 01 REVIORA -->
+    <article class="proj-card">
+      <div class="proj-num">01</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">AI · Knowledge Management</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">Reviora — AI Operations Copilot</h3>
+        <p class="proj-desc">An in-house AI chatbot that consolidated fragmented process documentation and eliminated hours of daily operational inefficiency — reducing knowledge retrieval overhead by 95%.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">95%</span>
+            <span class="stat-label">Efficiency gain</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">44 hrs → 3 hrs</span>
+            <span class="stat-label">Monthly overhead</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">5–6 days</span>
+            <span class="stat-label">Recovered per month</span>
+          </div>
+        </div>
+        <div class="proj-tech">
+          <span>NotebookLM</span><span>Prompt Engineering</span><span>Knowledge Management</span><span>Ops Design</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>Process documentation was deeply fragmented — multiple versions of the same process existed simultaneously, with no clear source of truth. Every time a process was updated, previous iterations lingered across drives and inboxes, creating confusion.</p>
+              <p>Beyond documentation, the team spent significant time resolving process-related queries through repeated communication. A measured baseline of approximately 2 hours per day — 44 hours per month, or 5–6 working days — was being lost to documentation search and repetitive clarifications.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>Reviora is an in-house AI operations copilot built on NotebookLM, designed to consolidate the team's entire knowledge base and surface it conversationally. It acts as an always-available resource for process queries, onboarding, cross-team understanding, and operational best practices.</p>
+              <p>The build involved three phases: processes were categorized into structured domains — Operational, Process-Related, Team-Related, Onboarding, and others. Every process, update, team member detail, and skill matrix entry was then mapped out in full. Finally — and critically — each document was written with AI readability in mind, optimizing structure and language for how a language model would consume and reason over the content.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Instant resolution of process and operational queries without escalation</li>
+              <li>Automated drafting of vendor query responses based on documented processes</li>
+              <li>Team-level visibility via skill matrices — enabling managers to match tasks to the right individuals</li>
+              <li>Cross-team collaboration: different teams could independently understand each other's processes without repeated back-and-forth</li>
+              <li>Standardized onboarding experience for new team members</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">95%</div>
+                <div class="cs-metric-label">Reduction in knowledge overhead</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">44 → 3 hrs</div>
+                <div class="cs-metric-label">Monthly time on queries</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">5–6 days</div>
+                <div class="cs-metric-label">Productive time recovered monthly</div>
+              </div>
+            </div>
+            <div class="cs-text" style="margin-top:1rem;">
+              <p>Impact was measured over one month of post-implementation tracking. The reduction was consistent across the team, not just at the individual level.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 SPAM DETECTION -->
+    <article class="proj-card">
+      <div class="proj-num">02</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">AI · Data · Fraud Detection</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">Spam & Fraud Detection Model</h3>
+        <p class="proj-desc">A hybrid detection system combining SQL workflows, formula-based automation, and AI-assisted prompts to identify spam, fraud, and information discrepancies — lifting accuracy from 72% to 92%.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">72% → 92%</span>
+            <span class="stat-label">Detection accuracy</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">75%+</span>
+            <span class="stat-label">Efficiency gain</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Eliminated</span>
+            <span class="stat-label">Manual detection effort</span>
+          </div>
+        </div>
+        <div class="proj-tech">
+          <span>SQL</span><span>Spreadsheet Automation</span><span>AI Prompting</span><span>Fraud Detection</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>Spam and fraud detection was done entirely by hand. Analysts manually reviewed records for signs of fraud, spam patterns, and information discrepancies — a process prone to oversight, inconsistent judgment, and human error.</p>
+              <p>The manual approach had a measurable ceiling: detection accuracy sat between 72–78%, meaning a significant proportion of fraud and spam was either missed or incorrectly actioned. There was no systematic pattern recognition in place.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A multi-layer detection system that operates from a single raw data input source. The system runs records through an extensive formula-based spreadsheet template and SQL workflows that automatically surface records with high fraud or spam probability. AI-assisted prompts layer on top to catch patterns that rule-based logic alone may miss.</p>
+              <p>Detected records are categorized automatically based on the pattern type exhibited — spam, fraud, or information discrepancy — giving analysts a pre-triaged queue rather than an undifferentiated list to review manually.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Single-input automation — raw data in, categorized output out</li>
+              <li>Pattern-based classification across spam, fraud, and discrepancy types</li>
+              <li>SQL workflow integration for scalable data processing</li>
+              <li>AI-assisted prompt layer for nuanced pattern identification beyond rule-based logic</li>
+              <li>Elimination of manual review as the primary detection mechanism</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">92%</div>
+                <div class="cs-metric-label">Detection accuracy (from 72–78%)</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">75%+</div>
+                <div class="cs-metric-label">Increase in efficiency</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Eliminated</div>
+                <div class="cs-metric-label">Manual detection effort</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 AI PERSONAS -->
+    <article class="proj-card">
+      <div class="proj-num">03</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">AI · Workflow · Team Ops</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">AI Persona Suite — Team-Scale Automation</h3>
+        <p class="proj-desc">A suite of six purpose-built AI personas deployed team-wide to standardize analysis, documentation, and irregularity detection — replacing manual, inconsistent, and error-prone processes.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">6</span>
+            <span class="stat-label">Personas built</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Team-wide</span>
+            <span class="stat-label">Adoption</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Standardized</span>
+            <span class="stat-label">Analysis & docs</span>
+          </div>
+        </div>
+        <div class="proj-tech">
+          <span>Prompt Engineering</span><span>AI Personas</span><span>Workflow Automation</span><span>Standardization</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>A range of recurring operational tasks — deep-dive analysis, documentation, irregularity identification — were being handled manually, individually, and without standardization. Output quality varied by person, analysis was time-intensive, and processes susceptible to human error in judgment had no systematic checks in place.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A suite of six AI personas, each purpose-built for a specific operational need and deployed team-wide. Each persona was designed with extensive prompt instructions, calibrated against real organizational context, and built to operate consistently regardless of who is using it.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Personas built</p>
+            <ul class="cs-list">
+              <li><strong style="color:var(--text); font-weight:500;">Documentation Assistant</strong> — generates formal, standardized proposals and process documents using organization-wide documents as reference, producing consistent output regardless of who initiates it</li>
+              <li><strong style="color:var(--text); font-weight:500;">Analysis Assistant</strong> — accepts raw data input and conducts deep strategic analysis, surfacing business insights and identifying problem areas; replaced an entirely manual, unstandardized process</li>
+              <li><strong style="color:var(--text); font-weight:500;">Irregularities Identification Assistant</strong> — scans records for patterns including word count anomalies, harsh content, and Conflict of Interest flags; eliminates reliance on individual judgment for detection</li>
+              <li>Three additional personas covering other recurring operational workflows</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-text">
+              <p>All six personas were adopted at the team level, standardizing output quality across analysis, documentation, and compliance-related tasks. Processes previously dependent on individual effort and judgment became consistent, repeatable, and significantly faster — particularly deep-dive analysis, which had no prior standardization at all.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 TAT INTELLIGENCE -->
+    <article class="proj-card">
+      <div class="proj-num">04</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">Ops · Analytics · Automation</span>
+        </div>
+        <h3 class="proj-title">TAT Intelligence Tool — SLA Breach & Performance System</h3>
+        <p class="proj-desc">A two-layer operational system that detects SLA breaches in real time and surfaces records for priority processing, while tracking team efficiency over time — reducing daily reporting overhead by 93%.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">15 min → &lt;1 min</span>
+            <span class="stat-label">Daily reporting time</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Automated</span>
+            <span class="stat-label">Priority queue surfacing</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Real-time</span>
+            <span class="stat-label">Team efficiency tracking</span>
+          </div>
+        </div>
+        <div class="proj-tech">
+          <span>Spreadsheet Automation</span><span>SLA Management</span><span>Performance Analytics</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>TAT management was handled entirely manually. Daily reporting took around 15 minutes each day. There was no systematic process for surfacing records breaching the defined TAT — identification relied on manual Excel filtering. And there was no performance intelligence layer at all: team efficiency against TAT was not being measured in any structured way.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A two-layer system built on formula-based spreadsheet automation. The first layer handles operational prioritization: it automatically identifies records breaching defined TAT thresholds and surfaces them directly to the team for priority processing — replacing manual Excel filtering entirely.</p>
+              <p>The second layer handles performance intelligence: it tracks the TAT of processed records over time, enabling the team to measure actual efficiency, identify bottlenecks, and manage turnaround proactively. This layer did not exist before this build.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Real-time identification of records breaching defined TAT thresholds</li>
+              <li>Automatic surfacing of breach records for priority processing</li>
+              <li>Team-level efficiency measurement through processed record TAT tracking</li>
+              <li>Gap and bottleneck identification at the performance level</li>
+              <li>Daily reporting reduced from 15 minutes to under 1 minute</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">93%</div>
+                <div class="cs-metric-label">Reduction in daily reporting time</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Automated</div>
+                <div class="cs-metric-label">Breach detection & queue surfacing</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Built from scratch</div>
+                <div class="cs-metric-label">Performance intelligence layer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05 NOTE GENERATOR -->
+    <article class="proj-card">
+      <div class="proj-num">05</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">Automation · Standardization</span>
+        </div>
+        <h3 class="proj-title">Automated Note Generator</h3>
+        <p class="proj-desc">A formula-driven template that automatically analyzes reviewer-level entities from raw data and produces standardized notes — cutting processing time by 93% while improving consistency across the team.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">93%</span>
+            <span class="stat-label">Time reduction</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">15 min → &lt;1 min</span>
+            <span class="stat-label">Per record</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Standardized</span>
+            <span class="stat-label">Team-wide notes</span>
+          </div>
+        </div>
+        <div class="proj-tech">
+          <span>Spreadsheet Automation</span><span>Formula Engineering</span><span>Process Design</span>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>Notes for reviewer-level records were written manually — analysts reviewed each entity individually and composed notes from scratch, taking around 15 minutes per record. At volume, this was a significant drag. Beyond time, there was a standardization problem: notes varied in structure and language across the team, making tracking and management of records harder than it needed to be.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A formula-driven spreadsheet template that accepts raw data as input and automatically analyzes all entities of the reviewer. Based on that analysis, a structured note is generated automatically — no manual composition required. The template was standardized and deployed across the team, replacing individual variation with a consistent output format.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">93%</div>
+                <div class="cs-metric-label">Reduction in processing time</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">&lt;1 min</div>
+                <div class="cs-metric-label">Per record (from 15 min)</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">Consistent</div>
+                <div class="cs-metric-label">Quality, format & accuracy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /proj-grid -->
+</section>
+
+<!-- OPEN-SOURCE BUILDS -->
+<section id="open-source">
+  <div class="projects-header">
+    <div class="reveal">
+      <p class="section-num">04 — Open-Source Builds</p>
+      <h2 class="section-title">Public, verifiable proof of work.</h2>
+    </div>
+    <p class="reveal" style="color:var(--muted); font-size:0.95rem; line-height:1.7;">The case studies above show impact delivered inside organizations — necessarily private, with no external link to inspect. These are public builds: real code, real data, live links you can click and verify yourself.</p>
+  </div>
+
+  <div class="proj-grid reveal">
+
+    <!-- 01 GOVERNANCE AUDITOR -->
+    <article class="proj-card">
+      <div class="proj-num">01</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">AI · Governance · Automation</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">AI Agent Governance Auditor</h3>
+        <p class="proj-desc">An automated auditor that parses n8n workflow definitions and verifies — via forward reachability across the actual execution graph, not presence-checking — whether AI agent write actions are genuinely gated behind human approval. Applied to 68 real, public n8n workflow templates.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">55.88%</span>
+            <span class="stat-label">Act fully autonomously, no verified gate</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">0%</span>
+            <span class="stat-label">Have structured error handling</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">51.47%</span>
+            <span class="stat-label">Autonomous + no error handling + no audit trail</span>
+          </div>
+        </div>
+        <div class="proj-tech">
+          <span>Python</span><span>FastAPI</span><span>n8n</span><span>Looker Studio</span><span>AI Governance</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://datastudio.google.com/reporting/9c7db748-d105-424b-b0c4-6e04fc9bdfc8" target="_blank" rel="noopener noreferrer">View Live Dashboard ↗</a>
+          <a href="https://github.com/SomeRandomIntrovert/AI-governance-auditor" target="_blank" rel="noopener noreferrer">View Repo ↗</a>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>80% of Fortune 500 companies now run AI agents built in low-code tools like n8n, but only 10% have any governance strategy for them. The governance products that exist — Credo AI, Microsoft Purview, and similar — operate at the API/network traffic layer. That layer can't see whether an agent's write actions are actually gated behind human approval, whether failures are handled or silent, or whether any audit trail exists — the layer where the real risk lives is the workflow's own configuration.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A FastAPI service parses exported n8n workflow JSON and scores it across four dimensions — credential exposure, error handling, autonomy tier, and audit trail — adapted from Gartner's AI-agent autonomy model and n8n's own documented security guidance. The scoring runs as a live, orchestrated pipeline (n8n webhook → scoring API → Google Sheets → Looker Studio), not a script run by hand.</p>
+              <p>The autonomy check itself required real engineering, not a shortcut: it verifies forward reachability from every workflow trigger, treating approval-gate nodes as dead ends. If a write action is still reachable via any path, that path bypasses the gate — correctly catching real failure patterns like a retry or fallback branch that quietly routes around an otherwise-correct approval step.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Forward-reachability graph verification — not "does a gate exist somewhere," but "is every path to this action actually gated"</li>
+              <li>Operation-aware write-action detection (a read on Airtable isn't scored the same as a write)</li>
+              <li>Autonomy classification adapted from Gartner's four-level model, including a genuine Observe vs. Advise split based on AI-node presence</li>
+              <li>Fully automated pipeline: submit a workflow to a webhook, get a scored, logged result on a live dashboard within seconds</li>
+              <li>10-case permanent regression suite, several contributed by real technical feedback from public review</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">55.88%</div>
+                <div class="cs-metric-label">Fully autonomous, no verified gate</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">0%</div>
+                <div class="cs-metric-label">Structured error handling present</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">2.94%</div>
+                <div class="cs-metric-label">Genuinely gated ("Act with Approval")</div>
+              </div>
+            </div>
+            <div class="cs-text" style="margin-top:1rem;">
+              <p>Validated against 68 real, publicly sourced workflow templates — not synthetic data — with a fully documented debugging trail: several real bugs (a false-positive on n8n's internal UUIDs, a trigger node mistaken for a mid-flow approval gate, read operations miscounted as writes) were found and fixed, including two surfaced through direct technical feedback after publishing, with the before/after impact of each fix reported honestly, whether or not it moved the headline numbers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 SLA TRIAGE AGENT -->
+    <article class="proj-card">
+      <div class="proj-num">02</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">AI · Ops · Automation</span>
+        </div>
+        <h3 class="proj-title">Self-Healing SLA Anomaly & Root-Cause Triage Agent</h3>
+        <p class="proj-desc">An automated pipeline combining n8n, Supabase, and Gemini to detect SLA anomalies from telemetry and auto-generate executive-ready incident PDFs — with three validated failure-pattern variants and an honestly documented known limitation.</p>
+        <div class="proj-tech">
+          <span>n8n</span><span>Supabase</span><span>Gemini</span><span>PDFShift</span><span>Root Cause Analysis</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/SomeRandomIntrovert/sla-breach-triage-agent" target="_blank" rel="noopener noreferrer">View Repo ↗</a>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>SLA breach investigation is typically manual: an alert fires, someone pulls telemetry, someone else writes up what happened for leadership — slow, inconsistent, and dependent on whoever's available at the time. The goal was to automate detection through root-cause write-up end to end, without losing the judgment a human analyst brings to distinguishing genuinely different failure patterns.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>An n8n-orchestrated pipeline ingests SLA telemetry from Supabase/PostgreSQL, uses Gemini to analyze the pattern of breaches and classify likely root cause, then auto-generates a formatted executive incident PDF via PDFShift and archives it to Google Drive — no manual report-writing step in the loop.</p>
+              <p>Three distinct failure-pattern variants were built and validated separately, rather than one generic classifier — each tested against its own realistic telemetry pattern to confirm the agent's root-cause reasoning held up, not just that a PDF got generated.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Automated anomaly detection directly from SLA telemetry, no manual review step required to trigger analysis</li>
+              <li>LLM-driven root-cause classification across three distinct, separately validated failure patterns</li>
+              <li>Auto-generated, formatted executive PDF output — ready to share, not a raw data dump</li>
+              <li>End-to-end n8n orchestration from telemetry ingestion through archived output</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-text">
+              <p>All three failure-pattern variants validated successfully against their target scenarios. One limitation was identified and documented rather than hidden: the agent's current root-cause reasoning doesn't reliably differentiate internal infrastructure failures from external ones — a known boundary of the current version, not a claim of full production readiness.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /proj-grid -->
+</section>
+
+<!-- THINKING -->
+<section id="thinking">
+  <div class="thinking-header">
+    <div class="reveal">
+      <p class="section-num">05 — Thinking</p>
+      <h2 class="section-title">How I Think.</h2>
+    </div>
+    <p class="reveal" style="color:var(--muted); font-size:0.95rem; line-height:1.7;">The principles that shape my approach to analytics, AI, automation, and operational excellence.</p>
+  </div>
+  <div class="thoughts-grid reveal">
+    <div class="thought-card">
+      <div class="thought-tag">Analytics</div>
+      <div class="thought-title">Looking for the "Why" behind the "What"</div>
+      <div class="thought-desc">Data tells me exactly what is happening, but psychology tells me why. I don’t just look at numbers as abstract digits on a dashboard; I see them as footprints of human decisions, frustrations, and habits.</div>
+    </div>
+    <div class="thought-card">
+      <div class="thought-tag">Operations</div>
+      <div class="thought-title">Treating every system as a living draft</div>
+      <div class="thought-desc">The best workflows are never truly "finished." I approach processes with a quiet, iterative mindset—building light, flexible systems that evolve alongside the team rather than heavy frameworks that break under pressure.</div>
+    </div>
+    <div class="thought-card">
+      <div class="thought-tag">Strategy</div>
+      <div class="thought-title">Let the work do the talking</div>
+      <div class="thought-desc">I’ve never been a fan of corporate buzzwords, flashy trophies, or shouting for attention. I prefer a quieter approach: focusing entirely on substance, deploying things that actually work, and letting the measurable impact speak for itself.</div>
+    </div>
+    <div class="thought-card">
+      <div class="thought-tag">Psycyhology</div>
+      <div class="thought-title">Stay Curious</div>
+      <div class="thought-desc">Growth stops the moment we accept "that's just how it's always been done" as a valid answer.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="contact-label reveal">06 — Contact</p>
+  <h2 class="contact-headline reveal">Let's work<br><em style="font-style:italic; color:var(--accent)">together.</em></h2>
+  <p class="contact-sub reveal">Open to strategy, operations, AI, analytics, and automation roles. Always interested in interesting problems.</p>
+  <div class="contact-links reveal">
+    <a href="mailto:bhargava.bhavaraju@gmail.com" class="contact-link">Email</a>
+    <a href="https://www.linkedin.com/in/bhargava-bhavaraju"
+   class="contact-link"
+   target="_blank"
+   rel="noopener noreferrer"
+   onclick="gtag('event', 'linkedin_click');">
+   LinkedIn
+</a>
+    <a href="https://github.com/SomeRandomIntrovert"
+   class="contact-link"
+   target="_blank"
+   rel="noopener noreferrer"
+   onclick="gtag('event', 'github_click');">
+   GitHub
+</a>
+    <a href="Bhargava Bhavaraju latest resume.pdf"
+   class="contact-link"
+   target="_blank"
+   onclick="gtag('event', 'resume_download');">
+   Resume
+</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Bhargava Bhavaraju</span>
+  <span>Strategy & Operations · AI · Research</span>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  function toggleCase(btn) {
+    const cs = btn.nextElementSibling;
+    const isOpen = cs.classList.contains('open');
+    if (!isOpen) {                                  // ADD THIS BLOCK ↓
+    const project = btn.closest('.proj-card')
+      .querySelector('.proj-title')
+      .textContent.trim();
+    gtag('event', 'project_open', { project_name: project });
+  }  
+    cs.classList.toggle('open');
+    btn.textContent = isOpen ? 'Read case study ↓' : 'Close ↑';
+    if (!isOpen) {
+      btn.closest('.proj-card').querySelector('.proj-num').style.color = 'var(--accent)';
+    } else {
+      btn.closest('.proj-card').querySelector('.proj-num').style.color = 'var(--border)';
+    }
+  }
+</script>
+</body>
+</html>
