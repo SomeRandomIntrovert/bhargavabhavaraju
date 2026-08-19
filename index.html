@@ -1203,6 +1203,86 @@
       </div>
     </article>
 
+    <!-- 03 ADOPTION-TRUST GAP -->
+    <article class="proj-card">
+      <div class="proj-num">03</div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="proj-type">AI · Behavioral Research · Analytics</span>
+          <span class="proj-badge">Featured</span>
+        </div>
+        <h3 class="proj-title">The Adoption-Trust Gap</h3>
+        <p class="proj-desc">A statistical test of AI-adoption "identity threat" theory against 24,988 real Stack Overflow Developer Survey responses — segmented by usage and trust, modeled with logistic regression, and stress-tested across countries before any finding was reported.</p>
+        <div class="proj-stats">
+          <div class="stat">
+            <span class="stat-value">43.6%</span>
+            <span class="stat-label">Heavy AI users who don't trust the output</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">35% lower</span>
+            <span class="stat-label">Odds of distrust among those who see AI as a job threat</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">2 countries</span>
+            <span class="stat-label">Where core findings replicated under robustness testing</span>
+          </div>
+        </div>
+        <div class="proj-tech">
+          <span>Python</span><span>Pandas</span><span>Statsmodels</span><span>Tableau</span><span>Behavioral Research</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://public.tableau.com/app/profile/bhargava.bhavaraju/viz/TheAdoption-TrustGap/Adoption-TrustGap" target="_blank" rel="noopener noreferrer">View Interactive Story ↗</a>
+          <a href="https://github.com/SomeRandomIntrovert/adoption-trust-gap" target="_blank" rel="noopener noreferrer">View Repo ↗</a>
+        </div>
+        <button class="proj-toggle" onclick="toggleCase(this)">Read case study ↓</button>
+        <div class="case-study">
+          <div class="cs-section">
+            <p class="cs-label">The problem</p>
+            <div class="cs-text">
+              <p>Every 2025/2026 report on AI-adoption resistance — WRITER, Gallup, SHRM, HBS, Wharton — leans on behavioral-science language like "identity threat" and "status-quo bias" as narrative color, without testing those constructs statistically against real data. Nobody publishing on this combines a published empirical behavioral-science background with the technical ability to run the analysis independently.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">What was built</p>
+            <div class="cs-text">
+              <p>A full analytical pipeline in Python: a real, public dataset (2025 Stack Overflow Developer Survey, 49,191 respondents) cleaned and filtered to 24,988 professional developers with valid responses, segmented into four groups by AI usage frequency and trust in output, then tested with logistic regression to identify what actually predicts "Compliance Without Buy-In" — heavy AI use without trust in the output.</p>
+              <p>Every finding was stress-tested, not just reported once. The model was re-fit separately within the US and within India to rule out country-composition artifacts, with formal interaction tests checking whether each effect's strength genuinely differed by country or just its baseline rate. The finding that didn't survive (a "managers trust more" pattern that turned out to be India-specific) is documented as clearly as the ones that held up.</p>
+            </div>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Key capabilities</p>
+            <ul class="cs-list">
+              <li>Real, licensed public dataset (Open Database License) — no synthetic or invented data at any stage</li>
+              <li>Every filtering step logged with row counts, so the final sample is fully auditable</li>
+              <li>Logistic regression with proper odds ratios, confidence intervals, and p-values — not a directional guess</li>
+              <li>Cross-country robustness testing with formal interaction terms, not just a second model fit</li>
+              <li>Fully interactive Tableau story — filterable by country, role, org size, and threat perception — not a static export</li>
+            </ul>
+          </div>
+          <div class="cs-section">
+            <p class="cs-label">Outcome</p>
+            <div class="cs-metrics">
+              <div class="cs-metric">
+                <div class="cs-metric-value">43.6%</div>
+                <div class="cs-metric-label">Heavy AI users who distrust the output they rely on daily</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">35% lower</div>
+                <div class="cs-metric-label">Odds of distrust among those who see AI as a threat</div>
+              </div>
+              <div class="cs-metric">
+                <div class="cs-metric-value">2 of 3</div>
+                <div class="cs-metric-label">Core findings replicated across countries; one corrected</div>
+              </div>
+            </div>
+            <div class="cs-text" style="margin-top:1rem;">
+              <p>The counterintuitive finding — that perceiving AI as a job threat predicts more trust, not less — held up under every robustness check run against it, including formal interaction tests confirming the pattern holds equally in the US and India despite very different baseline trust levels.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
   </div><!-- /proj-grid -->
 </section>
 
